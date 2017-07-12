@@ -1,6 +1,5 @@
 package pluto
 
-import com.google.inject.Scopes
 import com.google.inject.AbstractModule
 
 import pluto.docker.Module as DOCKER
@@ -19,7 +18,5 @@ class Module extends AbstractModule {
     install(new DOCKER())
     install(new EVENTS())
     install(new CONFIG())
-
-    bind(PlutoApplication).in(Scopes.SINGLETON)
   }
 }
