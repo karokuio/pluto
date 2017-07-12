@@ -26,7 +26,7 @@ class PlutoApplication {
    * @since 0.1.0
    */
   void run() {
-    log.debug 'Venus is listening to the templates queue'
+    log.debug "Pluto is listening to the '${config.events.consume.queue}' queue"
     consumer.channel.basicConsume(config.events.consume.queue, true, consumer)
   }
 
