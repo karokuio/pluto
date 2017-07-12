@@ -1,0 +1,20 @@
+apply from: 'gradle/compiler.gradle'
+apply from: 'gradle/codenarc.gradle'
+apply from: 'gradle/publish.gradle'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile "org.codehaus.groovy:groovy-all:$groovy_all"
+    compile "com.rabbitmq:amqp-client:$rabbitmq"
+    compile "com.google.inject:guice:$guice"
+    compile "org.yaml:snakeyaml:$snake_yaml"
+    compile "org.zeroturnaround:zt-zip:$zt_zip"
+    compile "ch.qos.logback:logback-classic:$logback"
+    compile "com.github.docker-java:docker-java:$docker_client"
+
+    testCompile "org.spockframework:spock-core:$spock_core"
+    testCompile "junit:junit:$junit"
+}

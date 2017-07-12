@@ -1,0 +1,21 @@
+apply plugin: 'maven-publish'
+
+publishing {
+    repositories {
+        maven {
+            url "${project.properties.artifactory_url}"
+            credentials {
+                username "${project.properties.artifactory_user}"
+                password "${project.properties.artifactory_password}"
+            }
+        }
+    }
+    publications {
+        mavenJava(MavenPublication) {
+            groupId groupid
+            artifactId artifactid
+            version version
+            from components.java
+        }
+    }
+}
