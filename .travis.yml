@@ -15,7 +15,7 @@ services:
   - docker
 script:
   - >
-    ./gradlew build final publish
+    ./gradlew build final publish --stacktrace
     -Partifactory_url=$BR_URI
     -Partifactory_user=$BR_USERNAME
     -Partifactory_password=$BR_PASSWORD
