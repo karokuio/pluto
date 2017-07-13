@@ -1,6 +1,7 @@
 apply from: 'gradle/compiler.gradle'
 apply from: 'gradle/codenarc.gradle'
 apply from: 'gradle/publish.gradle'
+apply from: 'gradle/release.gradle'
 
 repositories {
     jcenter()
