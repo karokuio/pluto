@@ -19,3 +19,4 @@ script:
     -Partifactory_url=$BR_URI
     -Partifactory_user=$BR_USERNAME
     -Partifactory_password=$BR_PASSWORD
+    -PgithubToken=$GH_TOKEN
