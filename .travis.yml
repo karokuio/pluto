@@ -16,6 +16,7 @@ services:
 script:
   - >
     ./gradlew build final bintrayUpload
+    -x publishMavenJavaPublicationToMavenLocal
     -Pbintray_user=$BR_USERNAME
     -Pbintray_key=$BR_PASSWORD
     -PgithubToken=$GH_TOKEN
