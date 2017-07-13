@@ -15,8 +15,7 @@ services:
   - docker
 script:
   - >
-    ./gradlew build final publish --stacktrace
-    -Partifactory_url=$BR_URI
-    -Partifactory_user=$BR_USERNAME
-    -Partifactory_password=$BR_PASSWORD
+    ./gradlew build final bintrayUpload
+    -Pbintray_user=$BR_USERNAME
+    -Pbintray_key=$BR_PASSWORD
     -PgithubToken=$GH_TOKEN

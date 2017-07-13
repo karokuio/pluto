@@ -1,21 +1,37 @@
 apply plugin: 'maven-publish'
+apply plugin: 'com.jfrog.bintray'
 
 publishing {
-    repositories {
-        maven {
-            url "${project.properties.artifactory_url}"
-            credentials {
-                username "${project.properties.artifactory_user}"
-                password "${project.properties.artifactory_password}"
-            }
-        }
-    }
     publications {
         mavenJava(MavenPublication) {
             groupId groupid
             artifactId artifactid
             version version
             from components.java
+        }
+    }
+}
+
+bintray {
+ /* Normally taken from ~/.gradle/gradle.properties */
+    user         = project.properties.bintray_user
+    key          = project.properties.bintray_key
+    publish      = true
+    publications = ['mavenJava']
+    pkg {
+        repo            = 'maven'
+        name            = 'pluto'
+        userOrg         = 'karoku'
+        desc            =  releaseDesc
+        issueTrackerUrl = 'https://github.com/karokuio/pluto/issues'
+        licenses        = ['Apache-2.0']
+        vcsUrl          = 'https://github.com/karokuio/pluto.git'
+        labels          = ['groovy', 'docker']
+        version {
+            name      = "${project.version}"
+            desc      = 'Pluto Release'
+            released  = new Date()
+            vcsTag    = "${project.version}"
         }
     }
 }
