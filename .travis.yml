@@ -15,7 +15,7 @@ services:
   - docker
 script:
   - >
-    ./gradlew build final bintrayUpload
+    ./gradlew build bintrayUpload
     -Pbintray_user=$BR_USERNAME
     -Pbintray_key=$BR_API_KEY
     -PgithubToken=$GH_TOKEN
