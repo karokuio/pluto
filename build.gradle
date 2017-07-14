@@ -5,7 +5,6 @@ buildscript {
     }
     dependencies {
         classpath "org.ajoberstar:gradle-git-publish:$gradle_git"
-        classpath "com.netflix.nebula:nebula-release-plugin:$nebula_release_plugin"
         classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:$bintray_plugin"
     }
 }
