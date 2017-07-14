@@ -1,20 +1,15 @@
 apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray'
-apply plugin: 'org.ajoberstar.grgit'
 
 publishing {
     publications {
-        mavenJava(MavenPublication) {
+        mavenCustom(MavenPublication) {
             groupId groupid
             artifactId artifactid
-            version version
+            version project.version
             from components.java
         }
     }
-}
-
-ext {
-  bintray_version = grgit.tag.list().last().name
 }
 
 bintray {
@@ -22,7 +17,7 @@ bintray {
     user         = project.properties.bintray_user
     key          = project.properties.bintray_key
     publish      = true
-    publications = ['mavenJava']
+    publications = ['mavenCustom']
     pkg {
         repo            = 'maven'
         name            = 'pluto'
@@ -33,10 +28,10 @@ bintray {
         vcsUrl          = 'https://github.com/karokuio/pluto.git'
         labels          = ['groovy', 'docker']
         version {
-            name      = "$bintray_version"
+            name      = project.version
             desc      = 'Pluto Release'
             released  = new Date()
-            vcsTag    = "$bintray_version"
+            vcsTag    = project.version
         }
     }
 }
