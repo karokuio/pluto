@@ -1,8 +1,6 @@
 package pluto.util
 
 import org.yaml.snakeyaml.Yaml as SnakeYaml
-import java.nio.file.Path
-import java.nio.file.Paths
 
 /**
  * Utilities to deal with yaml files
@@ -22,9 +20,9 @@ class Yaml {
    * @since 0.1.0
    */
   static <T> T loadAs(String resource, Class<?> clazz) {
-    Path path = Paths.get(ClassLoader.getSystemResource(resource).toURI())
-    SnakeYaml snakeYaml = new SnakeYaml()
-    Map map = snakeYaml.load(path.text) as Map
+    final InputStream inputSt = Yaml.getResourceAsStream(resource)
+    final SnakeYaml snakeYaml = new SnakeYaml()
+    final Map map = snakeYaml.load(inputSt) as Map
 
     return clazz.newInstance(map)
   }

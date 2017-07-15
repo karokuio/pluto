@@ -12,6 +12,6 @@ class PlutoConfigProvider implements Provider<PlutoConfig> {
 
   @Override
   PlutoConfig get() {
-    return Yaml.loadAs("pluto.yaml", PlutoConfig)
+    return Yaml.loadAs("/pluto.yaml", PlutoConfig)
   }
 }
