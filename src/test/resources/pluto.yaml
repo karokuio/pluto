@@ -4,6 +4,11 @@ events:
     username: guest
     password: guest
     host: rabbit
+  retry:
+    interval: 5
+    max_attempts: 20
+    max_duration: 300
+
   publish:
     exchange: karoku
   consume:

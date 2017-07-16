@@ -48,6 +48,15 @@ class PlutoConfig {
      * @since 0.1.0
      */
     Broker broker
+
+    /**
+     * Retry policy when something goes wrong in a message broker
+     * resource
+     *
+     * @since 0.1.0
+     */
+    Retry retry
+
   }
 
   /**
@@ -115,6 +124,37 @@ class PlutoConfig {
      */
     String password
   }
+
+    /**
+     * Information on how to recover from a message broker resource
+     * failure
+     *
+     * @since 0.1.0
+     */
+    @SuppressWarnings('PropertyName')
+    static class Retry {
+
+      /**
+       * Pause (in seconds) between attempts
+       *
+       * @since 0.1.0
+       */
+      Integer interval
+
+      /**
+       * The maximum number of attempts retrying
+       *
+       * @since 0.1.0
+       */
+      Integer max_attempts
+
+      /**
+       * The max duration to perform attempts for
+       *
+       * @since 0.1.0
+       */
+      Integer max_duration
+    }
 
   /**
    * Docker connection details

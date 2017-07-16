@@ -2,7 +2,7 @@ package pluto.events
 
 import com.google.inject.Scopes
 import com.google.inject.AbstractModule
-import com.rabbitmq.client.ConnectionFactory
+import com.rabbitmq.client.Channel
 
 /**
  * Module responsible for loading message broker connection and
@@ -13,7 +13,7 @@ import com.rabbitmq.client.ConnectionFactory
 class Module extends AbstractModule {
   @Override
   void configure() {
-    bind(ConnectionFactory).toProvider(RabbitProvider).in(Scopes.SINGLETON)
+    bind(Channel).toProvider(RabbitProvider)
     bind(Publisher).to(RabbitPublisher).in(Scopes.SINGLETON)
   }
 }

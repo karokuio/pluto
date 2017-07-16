@@ -26,6 +26,7 @@ dependencies {
     compile "org.zeroturnaround:zt-zip:$zt_zip"
     compile "ch.qos.logback:logback-classic:$logback"
     compile "com.github.docker-java:docker-java:$docker_client"
+    compile "net.jodah:lyra:$lyra"
 
     testCompile "org.spockframework:spock-core:$spock_core"
     testCompile "junit:junit:$junit"
